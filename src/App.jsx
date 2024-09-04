@@ -3,8 +3,10 @@ import RQSuperHeroesPage from "./components/RQSuperHeroes.page";
 import SuperHeroesPage from "./components/SuperHeroes.page";
 import HomePage from "./components/Home.page";
 import { QueryClient, QueryClientProvider } from "react-query";
-const queryClient = new QueryClient();
+import { ReactQueryDevtools } from "react-query/devtools";
 import "./App.css";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
           </div>
         </div>
       </Router>
+      <ReactQueryDevtools initialIsOpen={false} poition="bottom-right" />
     </QueryClientProvider>
   );
 }
