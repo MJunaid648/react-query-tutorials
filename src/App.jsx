@@ -5,6 +5,8 @@ import HomePage from "./components/Home.page";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import "./App.css";
+import Colors from "./components/Colors.page";
+import { RQSuperHeroPage } from "./components/RQSuperHero.page";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +19,9 @@ function App() {
             <ul>
               <li>
                 <Link to="/">Home</Link>
+              </li>{" "}
+              <li>
+                <Link to="/colors">RQ Colors</Link>
               </li>
               <li>
                 <Link to="/super-heroes">Traditional Super Heroes</Link>
@@ -28,6 +33,8 @@ function App() {
           </nav>
           <div className="route">
             <Routes>
+              <Route path="/colors" element={<Colors />}></Route>
+              <Route path="/rq-super-heroes/:heroId" element={<RQSuperHeroPage />}></Route>
               <Route path="/super-heroes" element={<SuperHeroesPage />}></Route>
               <Route
                 path="/rq-super-heroes"

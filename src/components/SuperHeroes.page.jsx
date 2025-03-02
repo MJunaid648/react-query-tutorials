@@ -2,20 +2,25 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const SuperHeroesPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(null);
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get("http://localhost:4000/superheroes")
       .then((res) => {
         setData(res.data);
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       })
       .catch((error) => {
         setError(error.message);
-        setIsLoading(false);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
       });
   }, []);
 
