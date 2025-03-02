@@ -14,3 +14,7 @@ nav ul li {
 .route {
   padding: 30px;
 }
+.parallel-queries {
+  display: flex;
+  gap: 10rem;
+}
